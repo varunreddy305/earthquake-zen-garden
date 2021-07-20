@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
+import types from './actions/types';
 
 function site(state = {}, action) {
 	switch (action.type) {
+		case types.UPDATE_PAGE_TITLE:
+			return { ...state, pageTitle: action.payload };
 		default:
 			return state;
 	}

@@ -1,17 +1,24 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import './App.css';
-import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
+import Router from './components/Router/Router';
 
-function App() {
+function App(props) {
 	return (
 		<div className="app p-0">
-			<Row className="justify-content-center mt-3">Home</Row>
+			<Row className="justify-content-center mt-3">{props.title}</Row>
 			<Header />
-			<Profile />
+			<Router />
 		</div>
 	);
 }
 
-export default App;
+function mapStateToProps(state) {
+	return {
+		title: state.site.pageTitle
+	};
+}
+
+export default connect(mapStateToProps, null)(App);

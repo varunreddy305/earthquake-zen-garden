@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import ProfileView from './ProfileView';
+import updatePageTitle from '../../actions/updatePageTitle';
 
 function mapStateToProps(state) {
-	console.log(state);
 	return {
 		avatar: state.profile.avatarImage,
 		firstName: state.profile.firstName,
@@ -14,7 +14,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return {};
+	return {
+		pageTitle: () => {
+			dispatch(updatePageTitle('Profile'));
+		}
+	};
 }
 
 const Profile = connect(mapStateToProps, mapDispatchToProps)(ProfileView);

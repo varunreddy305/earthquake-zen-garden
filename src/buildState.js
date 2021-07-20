@@ -4,7 +4,8 @@ const buildState = () => {
 	const initialState = {
 		site: {
 			title: Data.site.title,
-			logoImage: Data.site.logoImage
+			logoImage: Data.site.logoImage,
+			pageTitle: 'Home'
 		},
 		profile: Data.profile
 	};
