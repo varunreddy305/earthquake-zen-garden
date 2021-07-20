@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 function ProfileView(props) {
-	useEffect(() => {
-		props.pageTitle();
-	}, []);
 	return (
 		<Container style={{ maxWidth: '720px' }}>
 			<Row className="d-flex justify-content-center my-4" style={{ fontWeight: 'bold' }}>

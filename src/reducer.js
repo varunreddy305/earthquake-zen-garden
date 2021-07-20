@@ -17,6 +17,36 @@ function profile(state = {}, action) {
 	}
 }
 
-const reducer = combineReducers({ site, profile });
+function metaData(state = {}, action) {
+	switch (action.type) {
+		default:
+			return state;
+	}
+}
+
+function features(state = {}, action) {
+	switch (action.type) {
+		case types.UPDATE_FEATURES:
+			const newState = action.payload;
+			return [...newState];
+		default:
+			return state;
+	}
+}
+
+function selectedFeature(state = {}, action) {
+	switch (action.type) {
+		case types.UPDATE_SELECTED_FEATURE:
+			return [...state, action.payload];
+		case types.DELETE_SELECTED_FEATURE:
+			const newState = state;
+			newState.pop();
+			return newState;
+		default:
+			return state;
+	}
+}
+
+const reducer = combineReducers({ site, profile, metaData, features, selectedFeature });
 
 export default reducer;

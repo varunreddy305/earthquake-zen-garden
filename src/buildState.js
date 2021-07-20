@@ -7,7 +7,10 @@ const buildState = () => {
 			logoImage: Data.site.logoImage,
 			pageTitle: 'Home'
 		},
-		profile: Data.profile
+		profile: Data.profile,
+		metaData: Data.data.metadata,
+		features: Data.data.features,
+		selectedFeature: []
 	};
 	return initialState;
 };

@@ -1,20 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import './Header.css';
+import deleteSelectedFeature from '../../actions/deleteSelectedFeature';
+import updatePageTitle from '../../actions/updatePageTitle';
 
 function Header(props) {
 	return (
 		<div style={{ backgroundColor: '#ededed' }} className="">
 			<Row>
 				<Col className="p-3">
-					<a href="/">
+					<Link
+						to="/"
+						onClick={() => {
+							props.clearSelectedFeature();
+							props.changePageTitle('Home');
+						}}
+					>
 						<img src={props.logoImage} className="logo" alt="logo" width="50" height="50" />
-					</a>
+					</Link>
 				</Col>
 				<Col className="my-auto d-flex justify-content-center">{props.title}</Col>
 				<Col className="my-auto d-flex justify-content-end profile">
-					<a href="/profile">Welcome {props.firstName}</a>
+					<Link
+						to="/profile"
+						onClick={() => {
+							props.changePageTitle('Profile');
+						}}
+					>
+						Welcome {props.firstName}
+					</Link>
 				</Col>
 			</Row>
 		</div>
@@ -30,7 +46,14 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return {};
+	return {
+		changePageTitle: name => {
+			dispatch(updatePageTitle(name));
+		},
+		clearSelectedFeature: () => {
+			dispatch(deleteSelectedFeature());
+		}
+	};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
