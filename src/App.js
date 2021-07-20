@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
 import './App.css';
-import Folder from './components/Folder/Folder';
+import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 		<div className="app p-0">
 			<Row className="justify-content-center mt-3">Home</Row>
 			<Header />
-			<Folder/>
+			<Profile />
 		</div>
 	);
 }

@@ -13,6 +13,14 @@
   }
 }
 
+.rowTable{
+  display: inline;
+}
+
+th{
+  padding: 10px !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
