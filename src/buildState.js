@@ -7,7 +7,8 @@ const buildState = () => {
 			logoImage: Data.site.logoImage,
 			pageTitle: 'Home',
 			magSorted: 1,
-			timeSorted: 1
+			timeSorted: 1,
+			placeSorted: 1
 		},
 		profile: Data.profile,
 		metaData: Data.data.metadata,

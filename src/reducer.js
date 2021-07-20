@@ -9,6 +9,8 @@ function site(state = {}, action) {
 			return { ...state, magSorted: action.payload };
 		case types.UPDATE_TIME_SORTED:
 			return { ...state, timeSorted: action.payload };
+		case types.UPDATE_PLACE_SORTED:
+			return { ...state, placeSorted: action.payload };
 		default:
 			return state;
 	}

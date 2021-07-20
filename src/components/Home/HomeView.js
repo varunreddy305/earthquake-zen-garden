@@ -1,21 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
+import { compareValues, comparePlaceValues } from '../../managers/DataSortManager';
 
 const Home = props => {
-	const { features, updateFeature, magSorted, timeSorted, changeMagSorted, changeTimeSorted } = props;
+	const {
+		features,
+		updateFeature,
+		magSorted,
+		timeSorted,
+		placeSorted,
+		changePlaceSorted,
+		changeMagSorted,
+		changeTimeSorted,
+		sortFeatures
+	} = props;
 
-	function compareValues(options, desc, isSorted, toSort) {
-		const sorted = options.sort((a, b) => {
-			return a.properties[desc] - b.properties[desc];
-		});
-		if (isSorted === 1) {
-			toSort((isSorted += 1));
-			props.sortFeatures(sorted);
-		} else {
-			toSort(1);
-			props.sortFeatures(sorted.reverse());
-		}
+	function handleOnTitleSort(options, desc, isSorted, toSort) {
+		const sorted = comparePlaceValues(options, desc, isSorted, toSort);
+		sortFeatures(sorted);
+	}
+
+	function handleSort(options, desc, isSorted, toSort) {
+		const sorted = compareValues(options, desc, isSorted, toSort);
+		sortFeatures(sorted);
 	}
 
 	function handleOnClick(feature) {
@@ -58,7 +66,7 @@ const Home = props => {
 							<tr>
 								<th
 									onClick={() => {
-										compareValues(features, 'title');
+										handleOnTitleSort(features, 'place', placeSorted, changePlaceSorted);
 									}}
 								>
 									Title
@@ -66,7 +74,7 @@ const Home = props => {
 								<th
 									style={{ textAlign: 'center' }}
 									onClick={() => {
-										compareValues(features, 'mag', magSorted, changeMagSorted);
+										handleSort(features, 'mag', magSorted, changeMagSorted);
 									}}
 								>
 									Magnitude
@@ -74,7 +82,7 @@ const Home = props => {
 								<th
 									style={{ textAlign: 'center' }}
 									onClick={() => {
-										compareValues(features, 'time', timeSorted, changeTimeSorted);
+										handleSort(features, 'time', timeSorted, changeTimeSorted);
 									}}
 								>
 									Time
