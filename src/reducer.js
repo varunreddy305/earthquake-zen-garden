@@ -5,6 +5,10 @@ function site(state = {}, action) {
 	switch (action.type) {
 		case types.UPDATE_PAGE_TITLE:
 			return { ...state, pageTitle: action.payload };
+		case types.UPDATE_MAG_SORTED:
+			return { ...state, magSorted: action.payload };
+		case types.UPDATE_TIME_SORTED:
+			return { ...state, timeSorted: action.payload };
 		default:
 			return state;
 	}

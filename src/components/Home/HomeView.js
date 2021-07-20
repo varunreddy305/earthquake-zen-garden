@@ -3,13 +3,19 @@ import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const Home = props => {
-	const { features, updateFeature } = props;
+	const { features, updateFeature, magSorted, timeSorted, changeMagSorted, changeTimeSorted } = props;
 
-	function compareValues(options, desc) {
+	function compareValues(options, desc, isSorted, toSort) {
 		const sorted = options.sort((a, b) => {
 			return a.properties[desc] - b.properties[desc];
 		});
-		props.sortFeatures(sorted);
+		if (isSorted === 1) {
+			toSort((isSorted += 1));
+			props.sortFeatures(sorted);
+		} else {
+			toSort(1);
+			props.sortFeatures(sorted.reverse());
+		}
 	}
 
 	function handleOnClick(feature) {
@@ -60,7 +66,7 @@ const Home = props => {
 								<th
 									style={{ textAlign: 'center' }}
 									onClick={() => {
-										compareValues(features, 'mag');
+										compareValues(features, 'mag', magSorted, changeMagSorted);
 									}}
 								>
 									Magnitude
@@ -68,7 +74,7 @@ const Home = props => {
 								<th
 									style={{ textAlign: 'center' }}
 									onClick={() => {
-										compareValues(features, 'time');
+										compareValues(features, 'time', timeSorted, changeTimeSorted);
 									}}
 								>
 									Time
