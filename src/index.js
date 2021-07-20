@@ -7,15 +7,12 @@ import store from './store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
-const AppWrapper = ({ children }) => {
-	return <Provider store={store}>{children}</Provider>;
-};
 
 ReactDOM.render(
 	<React.StrictMode>
-		<AppWrapper>
+		<Provider store={store}>
 			<App />
-		</AppWrapper>
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

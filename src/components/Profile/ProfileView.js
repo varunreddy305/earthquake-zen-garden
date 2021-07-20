@@ -13,26 +13,28 @@ function FolderView(props) {
 				</Col>
 				<Col>
 					<table>
-						<tr>
-							<th>FirstName</th>
-							<td> {props.firstName}</td>
-						</tr>
-						<tr>
-							<th>LastName</th>
-							<td> {props.lastName}</td>
-						</tr>
-						<tr>
-							<th>Phone</th>
-							<td>{props.phone}</td>
-						</tr>
-						<tr>
-							<th>Email</th>
-							<td>{props.email}</td>
-						</tr>
-						<tr>
-							<th style={{ display: 'inline' }}>Bio</th>
-							<td>{props.bio}</td>
-						</tr>
+						<tbody>
+							<tr>
+								<th>FirstName</th>
+								<td> {props.firstName}</td>
+							</tr>
+							<tr>
+								<th>LastName</th>
+								<td> {props.lastName}</td>
+							</tr>
+							<tr>
+								<th>Phone</th>
+								<td>{props.phone}</td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td>{props.email}</td>
+							</tr>
+							<tr>
+								<th style={{ display: 'inline' }}>Bio</th>
+								<td>{props.bio}</td>
+							</tr>
+						</tbody>
 					</table>
 				</Col>
 			</Row>
