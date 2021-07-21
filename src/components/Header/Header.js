@@ -22,7 +22,7 @@ function Header(props) {
 					</Link>
 				</Col>
 				<Col className="my-auto d-flex justify-content-center title">
-					<h1>{props.title}</h1>
+					<h3>{props.title}</h3>
 				</Col>
 				<Col className="my-auto d-flex justify-content-end profile">
 					<Link
