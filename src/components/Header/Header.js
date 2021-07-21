@@ -21,7 +21,9 @@ function Header(props) {
 						<img src={props.logoImage} className="logo" alt="logo" width="50" height="50" />
 					</Link>
 				</Col>
-				<Col className="my-auto d-flex justify-content-center title">{props.title}</Col>
+				<Col className="my-auto d-flex justify-content-center title">
+					<h1>{props.title}</h1>
+				</Col>
 				<Col className="my-auto d-flex justify-content-end profile">
 					<Link
 						to="/profile"
